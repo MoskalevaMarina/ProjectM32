@@ -43,6 +43,6 @@ namespace ProjectM32.Middlewares
             await _next.Invoke(context);
         }
 
-       
+     
     }
 }
