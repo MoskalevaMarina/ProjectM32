@@ -1,37 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Регистрация нового пользователя.";
 }
+@model ProjectM32.Models.Db.User
 
-<style>
-    table {
-        border-spacing: 0 15px;
-        align-self: center;
-    }
-
-    th {
-        background-color: #4287f5;
-        color: white;
-    }
-
-    th,
-    td {
-        width: 150px;
-        text-align: center;
-        border: none;
-        padding: 5px;
-    }
-
-    h2 {
-        color: #4287f5;
-    }
-
-    .submit-button {
-        position: absolute;
-        margin-left: 140px;
-    }
-</style>
-
-<div class="text-center">
+<div >
     <div>
         @if (Model == null)
         {
@@ -39,19 +11,20 @@
             <br>
 
             <form method="post">
-                <table>
-                    <tr>
-                        <td>Имя:</td>
-                        <td><input type="text" name="FirstName" /> </td>
-                    </tr>
-                    <tr>
-                        <td>Фамилия:</td>
-                        <td><input type="text" name="LastName" /></td>
-                    </tr>
-                </table>
-                <br>
-                <div class="submit-button">
-                    <input type="submit" value="Регистрация" />
+                <div>
+                    <div>
+                        <label asp-for="FirstName"></label><br />
+                        <input type="text" asp-for="FirstName" />
+                    </div>
+                    <div>
+                        <label asp-for="LastName"></label><br />
+                        <input type="text" asp-for="LastName" />
+                    </div>
+
+                    <div >
+                        <p></p>
+                        <button class="btn btn-primary"> Регистрация  </button>
+                    </div>
                 </div>
             </form>
         }

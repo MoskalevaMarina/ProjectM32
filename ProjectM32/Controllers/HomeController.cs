@@ -14,16 +14,14 @@ namespace ProjectM32.Controllers
     {
        
         // ссылка на репозиторий
-        private readonly BlogRepository _repo;
-        private readonly LogRepository _repo1;
-        private readonly ILogger<HomeController> _logger;
+      
+        private readonly ILogRepository _repo;
+       
 
         // Также добавим инициализацию в конструктор
-        public HomeController(ILogger<HomeController> logger, BlogRepository repo, LogRepository repo1)
+        public HomeController(ILogRepository repo)
         {
-            _logger = logger;
-            _repo = repo;
-            _repo1 = repo1;
+             _repo = repo;           
         }
 
         // Сделаем метод асинхронным
@@ -35,7 +33,7 @@ namespace ProjectM32.Controllers
 
         public async Task<IActionResult> Logs()
         {
-            var logs = await _repo1.GetRequests();
+            var logs = await _repo.GetRequests();
             return View(logs);
         }
 

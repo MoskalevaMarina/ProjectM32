@@ -26,14 +26,14 @@ namespace ProjectM32
        
         public void ConfigureServices(IServiceCollection services)
         { // регистрация сервиса репозитория для взаимодействия с базой данных
-           services.AddTransient<IBlogRepository, BlogRepository>();
+           services.AddSingleton<IBlogRepository, BlogRepository>();
           
- 
+  services.AddTransient<ILogRepository, LogRepository>();
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<BlogContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<BlogContext>(options => options.UseSqlServer(connection), ServiceLifetime.Singleton);
             services.AddControllersWithViews();
 
-             services.AddSingleton<ILogRepository, LogRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
