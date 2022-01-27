@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "История запросов к проекту";
+}
+
+
+<div class="text-center">
+    <h2 class="display-4" style="text-align: left">История запросов к проекту </h2>
+    <br>
+    <table>
+        <tr>
+            <td>Идентификатор</td>
+            <td>Дата</td>
+            <td>Url</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Date</td>
+                <td>@item.Url</td>
+            </tr>
+        }
+    </table>
+</div>
